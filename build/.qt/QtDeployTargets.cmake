@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_common_FILE /home/georg/secur_audit/build/common/libcommon.a)
+set(__QT_DEPLOY_TARGET_common_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_server_FILE /home/georg/secur_audit/bin/server)
+set(__QT_DEPLOY_TARGET_server_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_client_FILE /home/georg/secur_audit/bin/client)
+set(__QT_DEPLOY_TARGET_client_TYPE EXECUTABLE)

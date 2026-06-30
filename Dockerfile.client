@@ -1,0 +1,16 @@
+FROM fedora:43
+
+# Отключаем проблемный репозиторий openh264
+RUN rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo
+
+RUN dnf update -y && \
+    dnf install -y qt6-qtbase-devel qt6-qtbase-gui cmake gcc-c++ openssl && \
+    dnf clean all
+
+WORKDIR /app
+COPY . .
+
+WORKDIR /app/build
+RUN cmake .. && make -j$(nproc)
+
+CMD ["/app/bin/client_gui"]

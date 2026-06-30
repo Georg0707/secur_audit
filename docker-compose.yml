@@ -1,0 +1,14 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: security-audit-server
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./certs:/app/certs
+      - ./config:/app/config
+      - ./ports:/app/ports
+      - ./logs:/app/logs
+    restart: unless-stopped

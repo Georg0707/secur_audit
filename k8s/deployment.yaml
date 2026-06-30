@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: security-audit-server
+  labels:
+    app: security-audit
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: security-audit-server
+  template:
+    metadata:
+      labels:
+        app: security-audit-server
+    spec:
+      containers:
+      - name: server
+        image: security-audit-server:latest
+        ports:
+        - containerPort: 8443
+        volumeMounts:
+        - name: certs
+          mountPath: /app/certs
+        - name: config
+          mountPath: /app/config
+        livenessProbe:
+          tcpSocket:
+            port: 8443
+          initialDelaySeconds: 10
+          periodSeconds: 30
+      volumes:
+      - name: certs
+        configMap:
+          name: audit-certs
+      - name: config
+        configMap:
+          name: audit-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: security-audit-service
+spec:
+  selector:
+    app: security-audit-server
+  ports:
+  - port: 8443
+    targetPort: 8443
+  type: ClusterIP

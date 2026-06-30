@@ -1,0 +1,14 @@
+[  0%] Built target common_autogen_timestamp_deps
+[  5%] Built target common_autogen
+[ 23%] Built target common
+[ 23%] Built target server_autogen_timestamp_deps
+[ 23%] Built target client_autogen_timestamp_deps
+[ 35%] Automatic MOC and UIC for target server
+[ 35%] Built target client_autogen
+[ 70%] Built target client
+[ 70%] Built target server_autogen
+[ 76%] Building CXX object server/CMakeFiles/server.dir/main.cpp.o
+[ 82%] Building CXX object server/CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o
+[ 88%] Building CXX object server/CMakeFiles/server.dir/Server.cpp.o
+[ 94%] Linking CXX executable /home/georg/secur_audit/bin/server
+[100%] Built target server

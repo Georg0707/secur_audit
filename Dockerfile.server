@@ -1,0 +1,18 @@
+FROM fedora:43
+
+RUN rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo
+
+RUN dnf update -y && \
+    dnf install -y qt6-qtbase-devel qt6-qtbase-gui cmake gcc-c++ openssl && \
+    dnf clean all
+
+WORKDIR /app
+COPY . .
+
+RUN rm -rf /app/build && mkdir -p /app/build
+WORKDIR /app/build
+RUN cmake .. && make -j$(nproc)
+
+EXPOSE 8443
+
+CMD ["/app/bin/server", "/app/config/server.conf"]

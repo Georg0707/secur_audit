@@ -1,0 +1,17 @@
+/home/georg/secur_audit/build/CMakeFiles/edit_cache.dir
+/home/georg/secur_audit/build/CMakeFiles/rebuild_cache.dir
+/home/georg/secur_audit/build/common/CMakeFiles/common.dir
+/home/georg/secur_audit/build/common/CMakeFiles/edit_cache.dir
+/home/georg/secur_audit/build/common/CMakeFiles/rebuild_cache.dir
+/home/georg/secur_audit/build/common/CMakeFiles/common_autogen_timestamp_deps.dir
+/home/georg/secur_audit/build/common/CMakeFiles/common_autogen.dir
+/home/georg/secur_audit/build/server/CMakeFiles/server.dir
+/home/georg/secur_audit/build/server/CMakeFiles/edit_cache.dir
+/home/georg/secur_audit/build/server/CMakeFiles/rebuild_cache.dir
+/home/georg/secur_audit/build/server/CMakeFiles/server_autogen_timestamp_deps.dir
+/home/georg/secur_audit/build/server/CMakeFiles/server_autogen.dir
+/home/georg/secur_audit/build/client/CMakeFiles/client.dir
+/home/georg/secur_audit/build/client/CMakeFiles/edit_cache.dir
+/home/georg/secur_audit/build/client/CMakeFiles/rebuild_cache.dir
+/home/georg/secur_audit/build/client/CMakeFiles/client_autogen_timestamp_deps.dir
+/home/georg/secur_audit/build/client/CMakeFiles/client_autogen.dir

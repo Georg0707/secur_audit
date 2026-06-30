@@ -1,0 +1,51 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y qt6-base-dev cmake g++ openssl
+    
+    - name: Build
+      run: |
+        mkdir build && cd build
+        cmake .. -DCMAKE_BUILD_TYPE=Release
+        make -j$(nproc)
+    
+    - name: Generate certificates
+      run: |
+        cd certs
+        chmod +x generate_certs.sh
+        ./generate_certs.sh
+    
+    - name: Run server (smoke test)
+      run: |
+        cd build
+        timeout 5 ./../bin/server ../config/server.conf || true
+
+  docker:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build Docker image
+      run: docker build -t security-audit-server -f Dockerfile.server .
+    
+    - name: Test container
+      run: |
+        docker run -d --name test-audit -p 8443:8443 security-audit-server
+        sleep 5
+        docker logs test-audit
+        docker stop test-audit

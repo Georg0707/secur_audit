@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++ -Wl,--dependency-file=CMakeFiles/server.dir/link.d CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o CMakeFiles/server.dir/main.cpp.o CMakeFiles/server.dir/Server.cpp.o CMakeFiles/server.dir/PortScanner.cpp.o -o /home/georg/secur_audit/bin/server  ../common/libcommon.a /usr/lib64/libQt6Network.so.6.10.3 /usr/lib64/libQt6Core.so.6.10.3
